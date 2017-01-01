@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Albums Page";
+}
+
+@section scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link href="@Url.Content("~/lib/nanogallery/css/nanogallery.css")" rel="stylesheet" type="text/css" />
+    <script src="~/lib/nanogallery/dist/jquery.nanogallery.min.js"></script>
+}
+
+<div id="nanoGallery2"></div>
+
+
+@section PageScripts {
+    <script>
+
+        //$(document).ready(function () {
+        //    $("#nanoGallery2").nanoGallery({
+        //        kind: 'picasa',
+        //        userID: '111777814590733053197',
+        //        album: '6370701210370364241',
+        //        maxItemsPerLine: 5,
+        //        paginationMaxLinesPerPage: 2
+        //        //paginationDots: true
+        //    });
+        //});
+
+        jQuery(document).ready(function () {
+            jQuery("#nanoGallery2").nanoGallery({
+                thumbnailWidth: 150,
+                thumbnailHeight: 150,
+                kind: 'json',
+                jsonProvider: 'http://theworldtws.azurewebsites.net/nanoPhotosProvider/nanoPhotosProvider.php',
+                locationHash: false
+            });
+        });
+
+    </script>
+}
